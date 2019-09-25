@@ -30,8 +30,27 @@ public:
 	
 	
 
-	Matrix(const Matrix<T>& m) {}
-	~Matrix() {}
+	Matrix(const Matrix<T>& m) {
+		cols = m.getCols();
+		rows = m.getRows();
+		element = new T[cols * rows ];
+
+		for (int i = 0; i < cols * rows; i++) {
+			element[i] = m.element[i];
+		}
+
+	}
+	~Matrix() {
+		delete[] element;
+	}
+
+	void setRows(T rows) {
+		this->rows = rows;
+	}
+
+	void setCols(T cols) {
+		this->cols = cols;
+	}
 
 	int getRows() const {
 		return rows;
@@ -40,6 +59,36 @@ public:
 		return cols;
 	}
 
+	T* getElement() const {
+		return element;
+	}
+
+	void transpose(){
+
+		for (int i = 0; i < this->rows; i++) {
+			for (int j = i; j < this->cols; j++) {
+				T tmp = 0;
+				tmp  = element[i * cols + j];
+				element[i * cols + j] = element[j * rows + i];
+				element[j * rows + i] = tmp;
+			}
+		}
+
+
+		int tn;
+		tn = cols;
+		cols = rows;
+		rows = tn;
+
+	}
+
+	T& operator()(int i, int j)const{		
+		if (i <1 || i > rows || j < 1 || j > cols) {
+			throw "∑√Œ ≥¨‘Ωæÿ’Û±ﬂΩÁ";
+		}
+
+		return element[(i - 1)*cols + (j - 1) ];
+	}
 
 	friend ostream& operator<<(ostream &out, const Matrix<T> &t) {
 		for (int i = 0; i < t.getRows(); i++) {
