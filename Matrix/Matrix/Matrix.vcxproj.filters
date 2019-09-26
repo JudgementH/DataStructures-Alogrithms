@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\SparseMatrix">
+      <UniqueIdentifier>{93cf20a1-6811-4544-aeb0-afb9f6a94112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\TridiagonalMatrix">
+      <UniqueIdentifier>{3811fa22-95ce-4251-95fd-cca62b0dac5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -24,7 +30,13 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="TridiagonalMatrix.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\TridiagonalMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="SparseMatrix.h">
+      <Filter>头文件\SparseMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
+      <Filter>头文件\SparseMatrix</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
