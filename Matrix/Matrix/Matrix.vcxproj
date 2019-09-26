@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="TridiagonalMatrix.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />

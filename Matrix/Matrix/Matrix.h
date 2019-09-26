@@ -98,7 +98,6 @@ public:
 
 	}
 
-
 	Matrix<T> operator+(const Matrix<T>& m)const {
 		if (rows != m.getRows() || cols != m.getCols()) throw "矩阵无法相加";
 
@@ -159,7 +158,6 @@ public:
 			}
 			out << endl;
 		}
-		out << endl;
 
 		return out;
 	}
