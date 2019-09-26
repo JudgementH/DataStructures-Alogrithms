@@ -7,6 +7,15 @@ private:
 	T *element;
 	int rows, cols;
 public:
+	Matrix(int rows, int cols) {
+		element = new T[rows * cols];
+
+		for (int i = 0; i < rows * cols; i++) {
+			element[i] = 0;
+		}
+		this->cols = cols;
+		this->rows = rows;
+	}
 	Matrix(T* array,int rows, int cols) {//把二维数组转化为一维数组来实现；
 		int now = 0;
 		int pre = 0;
@@ -27,9 +36,6 @@ public:
 		this->rows = rows;
 		this->cols = cols;
 	}
-	
-	
-
 	Matrix(const Matrix<T>& m) {
 		cols = m.getCols();
 		rows = m.getRows();
@@ -63,6 +69,16 @@ public:
 		return element;
 	}
 
+	void set(T x,int row, int col) {
+		if (row > rows || row < 1 || col < 1 || col > cols) throw "无法set，越界";
+		element[(row - 1 )*cols + col - 1] = x;
+	}
+
+	T get(int row, int col) const {
+		if (row > rows || row < 1 || col < 1 || col > cols) throw "无法get，越界";
+		return element[(row - 1) * cols + col - 1];
+	}
+
 	void transpose(){
 
 		for (int i = 0; i < this->rows; i++) {
@@ -80,6 +96,52 @@ public:
 		cols = rows;
 		rows = tn;
 
+	}
+
+
+	Matrix<T> operator+(const Matrix<T>& m)const {
+		if (rows != m.getRows() || cols != m.getCols()) throw "矩阵无法相加";
+
+		Matrix<T> tmp(rows, cols);
+		for (int i = 1; i <= rows; i++) {
+			for (int j = 1; j <= cols; j++) {
+				tmp.set(get(i, j) + m.get(i, j), i, j);
+			}
+		}
+
+		return tmp;
+	}
+
+	Matrix<T> operator-(const Matrix<T>& m)const {
+		if (rows != m.getRows() || cols != m.getCols()) throw "矩阵无法相减";
+
+		Matrix<T> tmp(rows, cols);
+		for (int i = 1; i <= rows; i++) {
+			for (int j = 1; j <= cols; j++) {
+				tmp.set(get(i, j) - m.get(i, j), i, j);
+			}
+		}
+
+		return tmp;
+	}
+
+	Matrix<T> operator*(const Matrix<T>& m)const {
+		if (getCols() != m.getRows()) throw "矩阵无法相乘";
+
+		//a*m m*b =a b
+
+		Matrix<T> tmp(rows, cols);
+		for (int i = 1; i <= rows; i++) {
+			for (int j = 1; j <= m.getCols(); j++) {
+				int sum = 0;
+				for (int k = 1; k <= getCols(); k++) {
+					sum += get(i,k) * m.get(k,j);
+				}
+				tmp.set(sum, i, j);
+			}
+		}
+
+		return tmp;
 	}
 
 	T& operator()(int i, int j)const{		
