@@ -42,7 +42,5 @@ int main() {
 
 	cout << tm << endl;
 
-
-	
 	system("pause");
 }

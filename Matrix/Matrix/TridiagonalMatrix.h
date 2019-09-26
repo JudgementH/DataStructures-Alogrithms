@@ -13,10 +13,21 @@ public:
 		}
 		this->n = n;
 	}
+
+	TridiagonalMatrix(const TridiagonalMatrix<T>& t) {
+		n = t.getN();
+		element = new T[3 * n -2];
+
+		for (int i = 0; i < 3 * n - 2; i++) {
+			element[i] = n.element[i];
+		}
+	}
 	
 	~TridiagonalMatrix() {
 		delete [] element;
 	}
+
+	int getN() const { return n; }
 
 	
 
