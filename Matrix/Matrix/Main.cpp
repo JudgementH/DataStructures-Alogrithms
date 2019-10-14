@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "Matrix.h"
 #include "TridiagonalMatrix.h"
+#include "SparseMatrix.h"
 using namespace std;
 
 
@@ -41,6 +42,21 @@ int main() {
 	tm.set(0, 4, 4);
 
 	cout << tm << endl;
+
+	SparseMatrix<int> sp(9,4,8);
+	sp.set(2, 1, 4, 0);
+	sp.set(1, 1, 7, 1);
+	sp.set(6, 2, 2, 2);
+	sp.set(7, 2, 5, 3);
+	sp.set(3, 2, 8, 4);
+	sp.set(9, 3, 4, 5);
+	sp.set(8, 3, 6, 6);
+	sp.set(4, 4, 2, 7);
+	sp.set(5, 4, 3, 8);
+	cout << sp << endl;
+	sp.transpose();
+	cout << sp << endl;
+
 
 	system("pause");
 }
