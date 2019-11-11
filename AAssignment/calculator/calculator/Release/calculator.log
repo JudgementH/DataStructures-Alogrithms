@@ -1,0 +1,9 @@
+﻿  calculator.cpp
+d:\code\大二数据结构与算法实验\calculator\calculator\calculator.cpp(96): warning C4018: “<”: 有符号/无符号不匹配
+d:\code\大二数据结构与算法实验\calculator\calculator\calculator.cpp(142): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码
+  4 of 123 functions ( 3.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  calculator.vcxproj -> D:\code\大二数据结构与算法实验\calculator\Release\calculator.exe

@@ -7,37 +7,45 @@ class Stack
 private:
 	int top;
 	int size;
+	int length;
 	T *element;
 
 
 public:
-	Stack() {
+	Stack(int length = 16) {
 		top = -1;
 		size = 0;
-		element = T[16];
-	}
-
-	Stack(int length) {
-		top = -1;
-		size = 0;
-		element = T[length];
+		this->length = length;
+		element = new T[length];
 	}
 	~Stack() { delete[] element; }
 
 	bool isEmpty() {
-		if (top < 1) {
+		if (top < 0 ) {
 			return true;
 		}
 		else return false;
 	}
 
 	bool isFull() {
-		if (top == (size -1) && size > 0) {
+		if (length == size && size > 0) {
 			return true;
 		}
 		else
 		{
 			return false;
+		}
+	}
+
+	void expansion() {
+		if (isFull()) {
+			T *tmp = new T[2 * length];
+			for (int i = 0; i < length; i++) {
+				tmp[i] = element[i];
+			}
+			delete[] element;
+			element = tmp;
+			length = length * 2;
 		}
 	}
 
@@ -55,9 +63,10 @@ public:
 	bool push(T x) {
 		if (isFull()) {
 			cout << "stcak is full!" << endl;
-			return false;
+			expansion();
 		}
 		top++;
+		size++;
 		element[top] = x;
 		return true;
 	}
@@ -67,12 +76,11 @@ public:
 			cout << "stack is empty" << endl;
 			return NULL;
 		}
-		int tmp = element[top];
+		T tmp = element[top];
 		element[top] = 0;
 		top--;
+		size--;
 		return tmp;
 
 	}
-
-
 };

@@ -1,0 +1,4 @@
+﻿  calculator.cpp
+d:\code\大二数据结构与算法实验\calculator\calculator\calculator.cpp(98): warning C4018: “<”: 有符号/无符号不匹配
+d:\code\大二数据结构与算法实验\calculator\calculator\calculator.cpp(144): warning C4018: “<”: 有符号/无符号不匹配
+  calculator.vcxproj -> D:\code\大二数据结构与算法实验\calculator\Debug\calculator.exe
