@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/code/DataStructures-Alogrithms/Queue/main.cpp
+iostream
+-
+stdlib.h
+D:/code/DataStructures-Alogrithms/Queue/stdlib.h
+
